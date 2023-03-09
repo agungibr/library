@@ -19,7 +19,7 @@
                                     </div>
                                     <div class="row row-cols-4  my-4 mx-auto" >
                                         @foreach ($books as $book)
-                                            <x-card :image="$book->sampul" :title="$book->judul"  :id="$book->id" />
+                                            <x-card :image="$book->sampul" :title="$book->judul"  :id="$book->id" :author="$book->pengarang" :publisher="$book->penerbit" admin/>
                                         @endforeach
                                     </div>
                                 </div>

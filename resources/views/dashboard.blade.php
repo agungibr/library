@@ -57,7 +57,7 @@
         </div>
         <div class="tm-bg-gray pt-3 pb-3 pl-3 pr-3 tm-text-gray tm-footer row row-cols-4  my-4 mx-auto" >
             @foreach ($books as $book)
-                <x-card :image="$book->sampul" :title="$book->judul"  :id="$book->id" />
+                <x-card :image="$book->sampul" :title="$book->judul"  :id="$book->id" :author="$book->pengarang" :publisher="$book->penerbit"/>
             @endforeach
         </div>
         {{ $books->links() }}
