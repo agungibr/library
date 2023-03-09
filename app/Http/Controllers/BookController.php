@@ -132,7 +132,7 @@ class BookController extends Controller
             'judul' => ['required', 'string', 'max:255', 'unique:books,judul,' . $book->id],
             'penerbit' => ['required', 'string', 'max:255'],
             'pengarang' => ['required', 'string', 'max:255'],
-            'sampul' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:4096', 'dimensions:min_width=100,min_height=100'],
+            'sampul' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:4096', 'dimensions:min_width=100,min_height=100'],
         ]);
 
         if ($validator->fails()) {
@@ -143,6 +143,7 @@ class BookController extends Controller
 
         $validated = $validator->validated();
 
+       if (!empty($validated['sampul'])) {
         $image = $validated['sampul'];
         $new_name = uniqid() . '_' . date('His') . '.' . $image->getClientOriginalExtension();
 
@@ -160,6 +161,7 @@ class BookController extends Controller
         }
 
         $validated['sampul'] = $request->getSchemeAndHttpHost() . '/storage/' . $new_name;
+       }
 
         $book->update($validated);
 
