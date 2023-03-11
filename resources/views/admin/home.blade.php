@@ -108,7 +108,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -131,20 +131,25 @@
                         <h1 class="h3 mb-0 text-gray-800">Data Buku</h1>
                         <a href="{{ route('home.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Tambah Buku</a>
                     </div>
-                    <div class="row">
-                        <div class="card-body">
-                            @foreach ($books as $book)
-                                <x-card :image="$book->sampul" :title="$book->judul"  :id="$book->id" :author="$book->pengarang" :publisher="$book->penerbit" admin/>
-                            @endforeach
+                    <div class="container">
+                        <div class="row">
+                            <div class="card-deck mt-2">
+                                <div class="card text-center">
+                                    <div class="card-block d-flex flex-row align-items-center">
+                                        @foreach ($books as $book)
+                                            <x-card :image="$book->sampul" :title="$book->judul"  :id="$book->id" :author="$book->pengarang" :publisher="$book->penerbit" admin/>
+                                        @endforeach
+                                    </div>  
+                                </div>
+                            </div>
                         </div>
+                        {{ $books->links() }}
                     </div>
                 </div>
             </div>
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
+                    <div class="copyright text-center my-auto"></div>
                 </div>
             </footer>
         </div>
@@ -194,6 +199,11 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="{{ asset('js/image.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/swal.js') }}"></script>
 
 </body>
 </html>

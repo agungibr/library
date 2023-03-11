@@ -21,7 +21,7 @@ class BookController extends Controller
         if ($search) {
             $data['books'] = Book::where('judul', 'like', '%' . $search . '%')->paginate(12);
         } else {
-            $data['books'] = Book::latest()->paginate(12);
+            $data['books'] = Book::latest()->paginate(4);
         }
 
         return view('admin.home', $data);

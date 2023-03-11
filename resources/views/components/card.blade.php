@@ -14,7 +14,7 @@
                 <form class="d-inline" action="{{ route('home.destroy', $id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <a href="" style="width: 140px;" class="btn btn-outline-danger confirm-delete">Hapus</a>
+                    <a href="" style="width: 120px;" class="btn btn-outline-danger confirm-delete">Hapus</a>
                 </form>
             </div>
             <a href="{{ route('home.show', $id) }}" class="btn btn-success w-100 mt-2 rounded-pill">Lihat</a>
