@@ -8,7 +8,8 @@
             <li class="list-group-item p-0 py-2">Pengarang : {{ $author }}</li>
             <li class="list-group-item p-0 py-2">Penerbit  : {{ $publisher }}</li>
         </ul>
-        @if ($admin)
+
+        @if(Auth::user()->role == 'admin')
             <div class="d-flex w-100 justify-content-between mt-4">
                 <a href="{{ route('home.edit', $id) }}" class="btn btn-primary" style="background: #364FF6;">Ubah</a>
                 <form class="d-inline" action="{{ route('home.destroy', $id) }}" method="post">
@@ -17,8 +18,9 @@
                     <a href="" style="width: 120px;" class="btn btn-outline-danger confirm-delete">Hapus</a>
                 </form>
             </div>
-            <a href="{{ route('home.show', $id) }}" class="btn btn-success w-100 mt-2 rounded-pill">Lihat</a>
         @endif
+
+            <a href="{{ route('home.show', $id) }}" class="btn btn-success w-100 mt-2 rounded-pill">Lihat</a>
     </div>
 </div>
 
