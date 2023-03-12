@@ -9,7 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Perpustakaan</title>
+    @if(Auth::user()->role == 'admin')
+        <title>Admin | Perpustakaan Z</title>
+    @endif
+
+    @if(Auth::user()->role == 'user')
+        <title>User | Perpustakaan Z</title>
+    @endif
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,16 +39,16 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15"></div>
-                <div class="sidebar-brand-text mx-3">Perpustakaan</div>
+                <div class="sidebar-brand-text mx-3">Perpustakaan Z</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('home.index') }}">
-                    <span>Dashboard</span>
+                    <span>Daftar Buku</span>
                 </a>
             </li>
         </ul>
