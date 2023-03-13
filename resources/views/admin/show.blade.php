@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-    <form class="card m-5 mx-auto" style="width: 75%;">
+    <form class="card m-5 mx-auto">
         <div class="card-header h6">
             Detail Buku
         </div>

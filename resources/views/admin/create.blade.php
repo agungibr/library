@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-    <form class="card m-5 mx-auto" style="width: 75%;" action="{{ route('home.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="card m-5 mx-auto" action="{{ route('home.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card-header h6">
             Formulir Tambah Buku
